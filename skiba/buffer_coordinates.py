@@ -161,8 +161,8 @@ class BufferCoordinates:
         # Randomize the point's location within the circle
         angle = np.random.uniform(0, 2 * np.pi)
         distance = (
-            np.random.uniform(0, 1) * radius_m
-        )  # Random distance from center up to radius
+            np.sqrt(np.random.uniform(0, 1)) * radius_m
+        )  # Random distance from center up to radius with probability of sqrt distribution to ensure uniform distribution within the circle
         # Calculate center of the circle so that the point is inside the circle but not at the center
         center_x = x - distance * np.cos(angle)
         center_y = y - distance * np.sin(angle)
