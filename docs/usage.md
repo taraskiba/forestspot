@@ -1,9 +1,9 @@
 # Usage
 
-To use skiba in a project:
+To use forestspot in a project:
 
 ```
-import skiba.buffer_coordinates as sbc
-import skiba.buffer_and_sample as sbs
-import skiba.point_extraction as spe
+import forestspot.buffer_coordinates as sbc
+import forestspot.buffer_and_sample as sbs
+import forestspot.point_extraction as spe
 ```

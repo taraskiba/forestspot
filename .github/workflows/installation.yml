@@ -28,4 +28,4 @@ jobs:
             - name: Install package
               run: pip install .
             - name: Test import
-              run: python -c "import skiba; print('skiba import successful')"
+              run: python -c "import forestspot; print('forestspot import successful')"

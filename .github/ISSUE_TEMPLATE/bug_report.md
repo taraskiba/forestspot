@@ -8,7 +8,7 @@ labels: bug
 
 ### Environment Information
 
--   skiba version:
+-   forestspot version:
 -   Python version:
 -   Operating System:
 

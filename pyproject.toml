@@ -1,5 +1,5 @@
 [project]
-name = "skiba"
+name = "forestspot"
 version = "2.6.1"
 dynamic = [
     "dependencies",
@@ -8,7 +8,7 @@ description = "A python package for foresters to query Google Earth Engine data"
 readme = "README.md"
 requires-python = ">=3.9"
 keywords = [
-    "skiba",
+    "forestspot",
 ]
 license = {text = "MIT License"}
 authors = [
@@ -24,12 +24,9 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 
-[project.entry-points."console_scripts"]
-skiba = "skiba.cli:main"
-
 [project.optional-dependencies]
 all = [
-    "skiba[extra]",
+    "forestspot[extra]",
 ]
 
 extra = [
@@ -39,7 +36,7 @@ extra = [
 
 [tool]
 [tool.setuptools.packages.find]
-include = ["skiba*"]
+include = ["forestspot*"]
 exclude = ["docs*"]
 
 [tool.setuptools.dynamic]
@@ -61,7 +58,7 @@ search = 'version = "{current_version}"'
 replace = 'version = "{new_version}"'
 
 [[tool.bumpversion.files]]
-filename = "skiba/__init__.py"
+filename = "forestspot/__init__.py"
 search = '__version__ = "{current_version}"'
 replace = '__version__ = "{new_version}"'
 
@@ -74,7 +71,7 @@ max-line-length = 88
 
 
 [project.urls]
-Homepage = "https://github.com/taraskiba/skiba"
+Homepage = "https://github.com/taraskiba/forestspot"
 
 [build-system]
 requires = ["setuptools>=64", "setuptools_scm>=8"]

@@ -1,1 +1,1 @@
-"""Unit test package for skiba."""
+"""Unit test package for forestspot."""

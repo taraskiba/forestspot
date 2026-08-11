@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
-"""Tests for `skiba` package."""
+"""Tests for `forestspot` package."""
 
 import unittest
 
-from skiba import skiba
+from forestspot import forestspot
 
 
-class TestSkiba(unittest.TestCase):
-    """Tests for `skiba` package."""
+class TestForestspot(unittest.TestCase):
+    """Tests for `forestspot` package."""
 
     def setUp(self):
         """Set up test fixtures, if any."""

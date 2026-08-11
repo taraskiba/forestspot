@@ -1,17 +1,17 @@
-# Welcome to skiba
+# Welcome to forestspot
 
 
-[![image](https://img.shields.io/pypi/v/skiba.svg)](https://pypi.python.org/pypi/skiba)
+[![image](https://img.shields.io/pypi/v/forestspot.svg)](https://pypi.python.org/pypi/forestspot)
 
 
 **A python package for a foresters to query Google Earth Engine data**
 
 
 -   Free software: MIT License
--   Documentation: <https://taraskiba.github.io/skiba>
+-   Documentation: <https://taraskiba.github.io/forestspot>
 -   Streamlit App: <https://gskiba.streamlit.app/>
 
-[![ForestSPOT](./files/logo.png)](https://github.com/taraskiba/skiba/tree/main/docs/files/logo.png)
+[![ForestSPOT](./files/logo.png)](https://github.com/taraskiba/forestspot/tree/main/docs/files/logo.png)
 ## Features
 
 -   Access and retrieve pixel values from Google Earth Engine Images or ImageCollections and a desired time-period for a .CSV provided coordinates.

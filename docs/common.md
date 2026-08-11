@@ -1,3 +1,3 @@
 # common module
 
-::: skiba.common
+::: forestspot.common

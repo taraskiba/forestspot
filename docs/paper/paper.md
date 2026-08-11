@@ -1,5 +1,5 @@
 ---
-title: 'skiba: a coordinate-based geospatial package for data acquisition from Google Earth Engine'
+title: 'forestspot: a coordinate-based geospatial package for data acquisition from Google Earth Engine'
 tags:
     - Python
     - forestry
@@ -31,7 +31,7 @@ bibliography: paper.bib
 ---
 
 # Summary
-`skiba` is a python package deployed on hugging face to allow natural resource professionals such as foresters or wildlife managers to access and retrieve data from Google Earth Engine. This purpose of this package is designed to extract values for a list of provided coordinate points with .
+`forestspot` is a python package deployed on hugging face to allow natural resource professionals such as foresters or wildlife managers to access and retrieve data from Google Earth Engine. This purpose of this package is designed to extract values for a list of provided coordinate points with .
 
 # Introduction
 
@@ -46,18 +46,18 @@ This package was developed to complement the USDA Forest Service's Forest Invent
 This project will be expanded to fit the needs of forest biometricians as they are presented, such as extracting the mean value for a given area and increasing the map's functionality. More geojson layers will be added as well, such as national forests and parks. Furthermore, as this project is hosted on GitHub, users who are comfortable with python can expand and contribute to this package's functionality for their purposes. While this package was developed with forest biometricians in mind, this package can be beneficial to other natural resource professionals who may also desire to utilize the vast range of data available as desired.
 
 
-# skiba Audience
-`skiba` is intended for natural resource professionals who would like to extract Google Earth Engine data for given coordinates, but the use of this package can be useful in other disciplines. This package removes the technological barriers that limit the package’s intended users from being able to utilize remotely sensed data. Users can access the base version of this package through huggingface (…TBD), and users can modify and build upon this package through the package’s GitHub and PyPI repositories. By design, this package is fairly rudimentary, with the goal of expanding the functions of this package to meet the needs of natural resource professionals accordingly. Two additional functions are currently being developed: a polygon buffering tool that will allow users to preserve any confidential coordinates they have and function that will extract temporal data, such as daily or monthly averages, for temporal analyses.
+# forestspot Audience
+`forestspot` is intended for natural resource professionals who would like to extract Google Earth Engine data for given coordinates, but the use of this package can be useful in other disciplines. This package removes the technological barriers that limit the package’s intended users from being able to utilize remotely sensed data. Users can access the base version of this package through huggingface (…TBD), and users can modify and build upon this package through the package’s GitHub and PyPI repositories. By design, this package is fairly rudimentary, with the goal of expanding the functions of this package to meet the needs of natural resource professionals accordingly. Two additional functions are currently being developed: a polygon buffering tool that will allow users to preserve any confidential coordinates they have and function that will extract temporal data, such as daily or monthly averages, for temporal analyses.
 
 This package has been used in existing research projects to query data and will be presented at various local and national conferences to promote its use to a broader range of users, as well as to the USFS Southern Research Station's FIA group in Knoxville, TN as an alternative to outsourcing their remote sensing needs to another office.
 
-# skiba Functionality
-The `skiba` package is built upon `@ipyleaflet` and `@geemap`, while also utilizing `@pandas` and `@geopandas` for data handling and `@ee` for source data. `skiba` is broken into two key modules:
+# forestspot Functionality
+The `forestspot` package is built upon `@ipyleaflet` and `@geemap`, while also utilizing `@pandas` and `@geopandas` for data handling and `@ee` for source data. `forestspot` is broken into two key modules:
 -	**`map_details`:** module for displaying an interactive map with uploaded coordinates plotted. Users may customize the map as allowed. This module uses `@ipyleaflet`, `@ipywidgets`, and `@geemap`. A walkthrough of this map feature can be found in `map_details_demo.ipynb`
 -	**`data_process`:** module for processing GEE data and returning the desired information for the user-provided coordinates. This module utilizes `@geemap`, `@pandas`, `@geopandas`, and `@ipywidgets`. A full demonstration of this module can be found in `data_process_demo.ipynb`.
 
 
-# skiba User Guide
+# forestspot User Guide
 - **Step 1:**   The User uploads a csv or xlsx file that must at least the following three columns: a plot identifier (e.g. plot #), latitude (in dd.), longitude (in dd.).
   - Example csv file format:
     ```python

@@ -1,8 +1,8 @@
-site_name: skiba
+site_name: forestspot
 site_description: A python package for a foresters to query Google Earth Engine data
 site_author: taraskiba
-site_url: https://taraskiba.github.io/skiba
-repo_url: https://github.com/taraskiba/skiba
+site_url: https://taraskiba.github.io/forestspot
+repo_url: https://github.com/taraskiba/forestspot
 
 copyright: "Copyright &copy; 2024 - 2024 Tara Skiba"
 
@@ -78,7 +78,7 @@ nav:
     - Contributing: contributing.md
     - FAQ: faq.md
     - Changelog: changelog.md
-    - Report Issues: https://github.com/taraskiba/skiba/issues
+    - Report Issues: https://github.com/taraskiba/forestspot/issues
     - Publication:
         - Paper: paper/paper.md
         - Bibliography: paper/paper.bib
@@ -90,7 +90,7 @@ nav:
         # - examples/ipyleaflet_demo.ipynb
 
     - API Reference:
-          - skiba module: skiba.md
+          - forestspot module: forestspot.md
           #- common module: common.md
           #- folium: foliumcode.md
           #- ipyleaflet: ipyleafletcode.md
