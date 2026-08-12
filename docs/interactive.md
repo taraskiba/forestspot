@@ -1,4 +1,4 @@
 
 # interactive module
 
-::: skiba.interactive
+::: forestspot.interactive

@@ -8,7 +8,7 @@ from io import StringIO
 
 from shapely.geometry import Point
 
-from skiba.common import hello_world, to_utm_crs
+from forestspot.common import hello_world, to_utm_crs
 
 
 class TestCommon(unittest.TestCase):

@@ -1,3 +1,3 @@
 # folium code
 
-::: skiba.foliumcode
+::: forestspot.foliumcode

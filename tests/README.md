@@ -1,6 +1,6 @@
-# Skiba Test Suite
+# ForestSPOT Test Suite
 
-This directory contains the comprehensive test suite for the skiba package.
+This directory contains the comprehensive test suite for the forestspot package.
 
 ## Running Tests
 
@@ -18,7 +18,7 @@ pytest
 
 ### Run with coverage report
 ```bash
-pytest --cov=skiba --cov-report=term-missing
+pytest --cov=forestspot --cov-report=term-missing
 ```
 
 ### Run specific test file

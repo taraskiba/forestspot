@@ -1,3 +1,3 @@
 # ipyleaflet code
 
-::: skiba.ipyleafletcode
+::: forestspot.ipyleafletcode

@@ -9,7 +9,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at <https://github.com/taraskiba/skiba/issues>.
+Report bugs at <https://github.com/taraskiba/forestspot/issues>.
 
 If you are reporting a bug, please include:
 
@@ -29,14 +29,14 @@ Look through the GitHub issues for features. Anything tagged with
 
 ### Write Documentation
 
-skiba could always use more documentation,
-whether as part of the official skiba docs,
+forestspot could always use more documentation,
+whether as part of the official forestspot docs,
 in docstrings, or even on the web in blog posts, articles, and such.
 
 ### Submit Feedback
 
 The best way to send feedback is to file an issue at
-<https://github.com/taraskiba/skiba/issues>.
+<https://github.com/taraskiba/forestspot/issues>.
 
 If you are proposing a feature:
 
@@ -46,14 +46,14 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here's how to set up skiba for local development.
+Ready to contribute? Here's how to set up forestspot for local development.
 
-1.  Fork the skiba repo on GitHub.
+1.  Fork the forestspot repo on GitHub.
 
 2.  Clone your fork locally:
 
     ```shell
-    $ git clone git@github.com:your_name_here/skiba.git
+    $ git clone git@github.com:your_name_here/forestspot.git
     ```
 
 3.  Install your local copy into a virtualenv. Assuming you have
@@ -61,8 +61,8 @@ Ready to contribute? Here's how to set up skiba for local development.
     local development:
 
     ```shell
-    $ mkvirtualenv skiba
-    $ cd skiba/
+    $ mkvirtualenv forestspot
+    $ cd forestspot/
     $ python setup.py develop
     ```
 
@@ -78,7 +78,7 @@ Ready to contribute? Here's how to set up skiba for local development.
     and the tests, including testing other Python versions with tox:
 
     ```shell
-    $ flake8 skiba tests
+    $ flake8 forestspot tests
     $ python setup.py test or pytest
     $ tox
     ```
@@ -104,5 +104,5 @@ Before you submit a pull request, check that it meets these guidelines:
     Put your new functionality into a function with a docstring, and add
     the feature to the list in README.rst.
 3.  The pull request should work for Python 3.8 and later, and
-    for PyPy. Check <https://github.com/taraskiba/skiba/pull_requests> and make sure that the tests pass for all
+    for PyPy. Check <https://github.com/taraskiba/forestspot/pull_requests> and make sure that the tests pass for all
     supported Python versions.

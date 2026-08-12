@@ -1,18 +1,17 @@
-# skiba
+# forestspot
 
 
-[![image](https://img.shields.io/pypi/v/skiba.svg)](https://pypi.python.org/pypi/skiba)
-[![image](https://img.shields.io/conda/vn/conda-forge/skiba.svg)](https://anaconda.org/conda-forge/skiba)
+[![image](https://img.shields.io/pypi/v/forestspot.svg)](https://pypi.python.org/pypi/forestspot)
 
 
 ### A python package for foresters to query Google Earth Engine data
 **Streamlining the process to bring remotely sensed data to foresters**
 
-[![ForestSPOT](docs/files/logo.png)](https://github.com/taraskiba/skiba)
+[![ForestSPOT](docs/files/logo.png)](https://github.com/taraskiba/forestspot)
 
 
 -   Free software: MIT License
--   Documentation: https://taraskiba.github.io/skiba/
+-   Documentation: https://taraskiba.github.io/forestspot/
 
 
 ## Walkthrough and Demonstration
@@ -32,7 +31,7 @@
 
 ## Installation
 ```python
-pip install skiba
+pip install forestspot
 ```
 
 Once installed, you need to authenticate your Google Earth Engine account. You can do this by running the following commands in Python:
@@ -48,27 +47,27 @@ To load widget boxes, run the following command in Python:
 
 ```python
 # For single point buffering
-import skiba.buffer_coordinates as sbc
+import forestspot.buffer_coordinates as sbc
 single = sbc.buffer_coordinates().vbox
 single
 
 # For multiple point buffering
-import skiba.buffer_and_sample as sbs
+import forestspot.buffer_and_sample as sbs
 multiple = sbs.buffer().vbox
 multiple
 
 # For non-aggregated point extraction
-import skiba.point_extraction as spe
+import forestspot.point_extraction as spe
 point = spe.PointExtraction().vbox
 point
 
 # For aggregated point extraction
-import skiba.aggregated_point_extraction as sape
+import forestspot.aggregated_point_extraction as sape
 agg = sape.AggregatedPointExtraction().vbox
 agg
 
 # For the mapping tool
-import skiba.interactive as map
+import forestspot.interactive as map
 m = map.Map()
 m
 ```
@@ -76,7 +75,7 @@ m
 ## Web App
 
 For a non-python user, you can access the Streamlit app here:
-https://gskiba.streamlit.app/
+https://forestspot.streamlit.app/
 
 ## Publication
 *pending*

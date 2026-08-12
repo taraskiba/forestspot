@@ -1,4 +1,0 @@
-
-# skiba module
-
-::: skiba.skiba

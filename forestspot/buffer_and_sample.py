@@ -2,21 +2,19 @@ import requests
 import ipywidgets as widgets
 import geopandas as gpd
 import pandas as pd
-import geemap as gm
 from shapely.geometry import Point
 import shapely
 from pyproj import Transformer
-import json
 import os
 import numpy as np
 
-from skiba.common import to_utm_crs
+from forestspot.common import to_utm_crs
 
 # ee.Authenticate()
 # ee.Initialize(project="ee-forestplotvariables")
 
 
-class BufferCoordinates:
+class Buffer:
     def __init__(self):
         """
         Initializes the buffer_coordinates class and sets up the GUI components.
@@ -35,14 +33,24 @@ class BufferCoordinates:
         data_dict = {item["title"]: item["id"] for item in data if "title" in item}
         self.dropdown = widgets.Dropdown(
             options=data_dict,  # keys shown, values returned
-            description="Dataset:",
+            description="OPTIONAL:",
             disabled=False,
         )
         self.dropdown.observe(self.on_dropdown_change, names="value")
 
         self.buffer_radius = widgets.FloatText(
-            value=10,
+            value=100,
             description="Buffer radius (ft):",
+            disabled=False,
+            display="flex",
+            flex_flow="column",
+            align_items="stretch",
+            style={"description_width": "initial"},
+        )
+
+        self.sample_button = widgets.IntText(
+            value=10,
+            description="Sampling number (int):",
             disabled=False,
             display="flex",
             flex_flow="column",
@@ -63,7 +71,12 @@ class BufferCoordinates:
         self.run_button.on_click(self.on_button_clicked)
 
         self.hbox = widgets.HBox(
-            [self.file_upload, self.dropdown, self.buffer_radius, self.run_button]
+            [
+                self.file_upload,
+                self.buffer_radius,
+                self.sample_button,
+                self.run_button,
+            ]
         )
 
         self.vbox = widgets.VBox([self.hbox, self.output])
@@ -118,6 +131,7 @@ class BufferCoordinates:
                 print("Please upload a CSV file.")
 
             radius_ft = self.buffer_radius.value
+            no_samp = self.sample_button.value
 
             out_dir = os.path.join(os.path.expanduser("~"), "Downloads")
             output_file = f"{radius_ft}ft.csv"
@@ -126,6 +140,7 @@ class BufferCoordinates:
             self.obfuscate_points(
                 data=points,
                 radius_feet=radius_ft,
+                no_samp=no_samp,
                 plot_id_col="plot_ID",
                 output_file=out_path,
             )
@@ -146,7 +161,7 @@ class BufferCoordinates:
                 print(f"Selected dataset: {change['new']}")
                 print(f"URL: {url}")
 
-    def create_obfuscated_point(self, point, radius_feet, crs="EPSG:4326"):
+    def create_obfuscated_points(self, point, radius_feet, no_samp, crs="EPSG:4326"):
         """
         Create a circle polygon (as a shapely geometry) with the given radius in feet,
         where the provided point is randomly located inside the circle (not at the center).
@@ -160,26 +175,24 @@ class BufferCoordinates:
         transformer_to_latlon = Transformer.from_crs(utm_crs, crs, always_xy=True)
         x, y = transformer_to_utm.transform(point.x, point.y)
 
-        # Randomize the point's location within the circle
-        angle = np.random.uniform(0, 2 * np.pi)
-        distance = (
-            np.sqrt(np.random.uniform(0, 1)) * radius_m
-        )  # Random distance from center up to radius with probability of sqrt distribution to ensure uniform distribution within the circle
-        # Calculate center of the circle so that the point is inside the circle but not at the center
-        center_x = x - distance * np.cos(angle)
-        center_y = y - distance * np.sin(angle)
-        center = Point(center_x, center_y)
+        points = []
+        for no in range(no_samp):
+            # Randomize the point's location within the circle
+            angle = np.random.uniform(0, 2 * np.pi)
+            distance = (
+                np.sqrt(np.random.uniform(0, 1)) * radius_m
+            )  # Random distance as function of sqrt from center up to radius
+            # Calculate center of the circle so that the point is inside the circle but not at the center
+            center_x = x - distance * np.cos(angle)
+            center_y = y - distance * np.sin(angle)
+            center = Point(center_x, center_y)
+            center_latlon = shapely.ops.transform(
+                lambda x, y: transformer_to_latlon.transform(x, y), center
+            )
+            points.append(center_latlon)
+        return points
 
-        # # Create the circle at the calculated center
-        # circle = center.buffer(radius_m, resolution=32)
-
-        # Transform the circle back to WGS84
-        center_latlon = shapely.ops.transform(
-            lambda x, y: transformer_to_latlon.transform(x, y), center
-        )
-        return center_latlon
-
-    def obfuscate_points(self, data, radius_feet, plot_id_col, output_file):
+    def obfuscate_points(self, data, radius_feet, no_samp, plot_id_col, output_file):
         """
         Obfuscate points within a radius and save as csv.
 
@@ -207,19 +220,16 @@ class BufferCoordinates:
             gdf = data.to_crs(epsg=4326)  # Ensure WGS84
 
         centers = []
-        ids = []
+
         for idx, row in gdf.iterrows():
             point = row["geometry"]
-            center = self.create_obfuscated_point(point, radius_feet, crs=gdf.crs)
-            centers.append(center)
-            ids.append(row[plot_id_col])
-        df = pd.DataFrame(
-            {
-                plot_id_col: ids,
-                "lat": [p.y for p in centers],
-                "lon": [p.x for p in centers],
-            }
-        )
+            center = self.create_obfuscated_points(
+                point, radius_feet, no_samp, crs=gdf.crs
+            )
+            for pt in center:
+                centers.append({"plot_ID": row[plot_id_col], "lat": pt.y, "lon": pt.x})
+            # Create new GeoDataFrame
+        df = pd.DataFrame(centers)
         # point_df = pd.DataFrame(gdf_circles)
         point_csv = df.to_csv()
         with open(output_file, "w", newline="") as f:

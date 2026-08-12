@@ -1,4 +1,4 @@
 
 # geojson_buffering module
 
-::: skiba.geojson_buffering
+::: forestspot.geojson_buffering

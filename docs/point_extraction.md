@@ -1,4 +1,4 @@
 
 # point_extraction module
 
-::: skiba.point_extraction
+::: forestspot.point_extraction
