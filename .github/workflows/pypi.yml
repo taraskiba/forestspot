@@ -1,6 +1,6 @@
 # This workflow uploads a Python package to PyPI when a release is created.
-# It authenticates with PyPI trusted publishing (OIDC), so no API token or
-# username/password secret is stored in this repository.
+# It authenticates with PyPI trusted publishing (OIDC), so the workflow no
+# longer reads a stored PyPI username/password secret.
 # See https://docs.pypi.org/trusted-publishers/
 
 name: pypi
@@ -9,12 +9,19 @@ on:
     release:
         types: [created]
 
+# Build-time dependencies run in the build job; give them no more than read
+# access. The publish job re-grants itself the one permission it needs.
+permissions:
+    contents: read
+
 jobs:
     build:
         runs-on: ubuntu-latest
 
         steps:
             - uses: actions/checkout@v4
+              with:
+                  persist-credentials: false
             - name: Set up Python
               uses: actions/setup-python@v5
               with:
@@ -30,6 +37,10 @@ jobs:
               with:
                   name: dist
                   path: dist/
+                  # Fail here rather than in the publish job if the build
+                  # produced nothing, and allow re-running a failed release.
+                  if-no-files-found: error
+                  overwrite: true
 
     publish:
         needs: build
@@ -47,7 +58,3 @@ jobs:
                   path: dist/
             - name: Publish to PyPI
               uses: pypa/gh-action-pypi-publish@release/v1
-              with:
-                  # Keeps a re-run of a release from failing on files PyPI
-                  # already has, as the previous twine --skip-existing did.
-                  skip-existing: true
