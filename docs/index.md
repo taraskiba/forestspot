@@ -9,7 +9,7 @@
 
 -   Free software: MIT License
 -   Documentation: <https://taraskiba.github.io/forestspot>
--   Streamlit App: <https://gskiba.streamlit.app/>
+-   Streamlit App: <https://forestspot.streamlit.app/>
 
 [![ForestSPOT](./files/logo.png)](https://github.com/taraskiba/forestspot/tree/main/docs/files/logo.png)
 ## Features

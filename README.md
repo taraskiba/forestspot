@@ -48,12 +48,12 @@ To load widget boxes, run the following command in Python:
 ```python
 # For single point buffering
 import forestspot.buffer_coordinates as sbc
-single = sbc.buffer_coordinates().vbox
+single = sbc.BufferCoordinates().vbox
 single
 
 # For multiple point buffering
 import forestspot.buffer_and_sample as sbs
-multiple = sbs.buffer().vbox
+multiple = sbs.Buffer().vbox
 multiple
 
 # For non-aggregated point extraction
