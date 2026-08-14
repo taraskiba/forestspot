@@ -100,4 +100,4 @@ nav:
           - buffer_coordinates: buffer_coordinates.md
           #- buffer_method: buffer_method.md
           - point_extraction: point_extraction.md
-          - interactive map: map.md
+          - interactive map: interactive.md
