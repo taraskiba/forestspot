@@ -1,5 +1,7 @@
-# This workflows will upload a Python Package using Twine when a release is created
-# For more information see: https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
+# This workflow uploads a Python package to PyPI when a release is created.
+# It authenticates with PyPI trusted publishing (OIDC), so the workflow no
+# longer reads a stored PyPI username/password secret.
+# See https://docs.pypi.org/trusted-publishers/
 
 name: pypi
 
@@ -7,12 +9,19 @@ on:
     release:
         types: [created]
 
+# Build-time dependencies run in the build job; give them no more than read
+# access. The publish job re-grants itself the one permission it needs.
+permissions:
+    contents: read
+
 jobs:
-    deploy:
+    build:
         runs-on: ubuntu-latest
 
         steps:
             - uses: actions/checkout@v4
+              with:
+                  persist-credentials: false
             - name: Set up Python
               uses: actions/setup-python@v5
               with:
@@ -20,11 +29,32 @@ jobs:
             - name: Install dependencies
               run: |
                   python -m pip install --upgrade pip
-                  pip install setuptools wheel twine build
-            - name: Build and publish
-              env:
-                  TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-                  TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-              run: |
-                  python -m build
-                  twine upload --skip-existing dist/*
+                  pip install build
+            - name: Build distributions
+              run: python -m build
+            - name: Upload distributions
+              uses: actions/upload-artifact@v4
+              with:
+                  name: dist
+                  path: dist/
+                  # Fail here rather than in the publish job if the build
+                  # produced nothing, and allow re-running a failed release.
+                  if-no-files-found: error
+                  overwrite: true
+
+    publish:
+        needs: build
+        runs-on: ubuntu-latest
+        # Mandatory for trusted publishing: lets the job mint an OIDC token
+        # that identifies it to PyPI.
+        permissions:
+            id-token: write
+
+        steps:
+            - name: Download distributions
+              uses: actions/download-artifact@v4
+              with:
+                  name: dist
+                  path: dist/
+            - name: Publish to PyPI
+              uses: pypa/gh-action-pypi-publish@release/v1
