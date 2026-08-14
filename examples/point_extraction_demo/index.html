@@ -851,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../map.md" class="md-nav__link">
+      <a href="../../interactive/" class="md-nav__link">
         
   
   
@@ -1651,7 +1651,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>"<a href="https://colab.research.google.com/github/taraskiba/skiba/blob/main/docs/examples/point_extraction_demo.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>"</p>
+<p><a href="https://colab.research.google.com/github/taraskiba/forestspot/blob/main/docs/examples/point_extraction_demo.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
 </div>
 </div>
 </div>
@@ -1685,15 +1685,15 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># !pip install skiba # uncomment if need to install the package</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">skiba.point_extraction</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">spe</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># !pip install forestspot # uncomment if need to install the package</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">forestspot.point_extraction</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">spe</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">ee</span>
 
 <span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
 <span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">"ee-forestplotvariables"</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1"># !pip install skiba # uncomment if need to install the package
-import skiba.point_extraction as spe
+<div class="clipboard-copy-txt" id="cell-1"># !pip install forestspot # uncomment if need to install the package
+import forestspot.point_extraction as spe
 import ee
 
 ee.Authenticate()
@@ -1733,10 +1733,10 @@ ee.Initialize(project="ee-forestplotvariables")</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">spe</span><span class="o">.</span><span class="n">point_extraction</span><span class="p">()</span><span class="o">.</span><span class="n">vbox</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">spe</span><span class="o">.</span><span class="n">PointExtraction</span><span class="p">()</span><span class="o">.</span><span class="n">vbox</span>
 <span class="n">m</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">m = spe.point_extraction().vbox
+<div class="clipboard-copy-txt" id="cell-2">m = spe.PointExtraction().vbox
 m</div>
 </div>
 </div>
@@ -1850,10 +1850,10 @@ print(start_date.value)</div>
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geemap</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gm</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">skiba.geojson_buffering</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gb</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">forestspot.geojson_buffering</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gb</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-6">import geemap as gm
-import skiba.geojson_buffering as gb</div>
+import forestspot.geojson_buffering as gb</div>
 </div>
 </div>
 </div>
@@ -1907,9 +1907,9 @@ m</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">skiba.interactive</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">interactive</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">forestspot.interactive</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">interactive</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-8">import skiba.interactive as interactive</div>
+<div class="clipboard-copy-txt" id="cell-8">import forestspot.interactive as interactive</div>
 </div>
 </div>
 </div>
@@ -2243,7 +2243,7 @@ gdf.head()</div>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 6, 2025 21:41:46 UTC"><span class="timeago" datetime="2025-11-06T21:41:46+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 6, 2025 21:41:46 UTC">2025-11-06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 14, 2026 20:14:59 UTC"><span class="timeago" datetime="2026-08-14T20:14:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 14, 2026 20:14:59 UTC">2026-08-14</span>
   </span>
 
     

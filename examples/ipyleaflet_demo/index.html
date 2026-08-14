@@ -846,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../map.md" class="md-nav__link">
+      <a href="../../interactive/" class="md-nav__link">
         
   
   
@@ -1646,7 +1646,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>"<a href="https://colab.research.google.com/github/taraskiba/skiba/blob/main/docs/examples/ipyleaflet_demo.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>"</p>
+<p><a href="https://colab.research.google.com/github/taraskiba/forestspot/blob/main/docs/examples/ipyleaflet_demo.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
 </div>
 </div>
 </div>
@@ -1669,13 +1669,15 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">skiba.ipyleafletcode</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">skibaipy</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># !pip install forestspot # uncomment if need to install the package</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">forestspot.ipyleafletcode</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">imap</span>
 
-<span class="n">skibaipy</span><span class="o">.</span><span class="n">Map</span>
+<span class="n">imap</span><span class="o">.</span><span class="n">Map</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1">import skiba.ipyleafletcode as skibaipy
+<div class="clipboard-copy-txt" id="cell-1"># !pip install forestspot # uncomment if need to install the package
+import forestspot.ipyleafletcode as imap
 
-skibaipy.Map</div>
+imap.Map</div>
 </div>
 </div>
 </div>
@@ -1700,14 +1702,14 @@ skibaipy.Map</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">skibaipy</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">37.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">95</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">imap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">37.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">95</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://github.com/opengeos/datasets/releases/download/vector/hike.geojson"</span>
 <span class="n">m</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="c1"># m.add_basemap("Esri.WorldImagery")</span>
 <span class="n">m</span><span class="o">.</span><span class="n">add_layer_control</span><span class="p">()</span>
 <span class="n">m</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">m = skibaipy.Map(center=[37.5, -95], zoom=4)
+<div class="clipboard-copy-txt" id="cell-2">m = imap.Map(center=[37.5, -95], zoom=4)
 url = "https://github.com/opengeos/datasets/releases/download/vector/hike.geojson"
 m.add_geojson(url)
 # m.add_basemap("Esri.WorldImagery")
@@ -1775,7 +1777,7 @@ m</div>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="April 17, 2025 20:14:55 UTC"><span class="timeago" datetime="2025-04-17T20:14:55+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="April 17, 2025 20:14:55 UTC">2025-04-17</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 14, 2026 20:14:59 UTC"><span class="timeago" datetime="2026-08-14T20:14:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 14, 2026 20:14:59 UTC">2026-08-14</span>
   </span>
 
     

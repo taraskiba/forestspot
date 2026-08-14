@@ -846,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../map.md" class="md-nav__link">
+      <a href="../../interactive/" class="md-nav__link">
         
   
   
@@ -1659,9 +1659,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">skiba.ipyleafletcode</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">forestspot.ipyleafletcode</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">imap</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1">import skiba.ipyleafletcode as sm</div>
+<div class="clipboard-copy-txt" id="cell-1">import forestspot.ipyleafletcode as imap</div>
 </div>
 </div>
 </div>
@@ -1686,9 +1686,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">sm</span><span class="o">.</span><span class="n">Map</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">imap</span><span class="o">.</span><span class="n">Map</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">sm.Map</div>
+<div class="clipboard-copy-txt" id="cell-2">imap.Map</div>
 </div>
 </div>
 </div>
@@ -1713,13 +1713,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scroll_wheel_zoom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">imap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scroll_wheel_zoom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://data.fs.usda.gov/geodata/rastergateway/downloadMap.php?mapID=354508215&amp;mapType=tif"</span>
 <span class="c1"># m.add_raster("HMA_DM_6H_v01_DEMe_1km.tif")</span>
 <span class="n">m</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">m</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">m = sm.Map(center=(0, 0), zoom=2, scroll_wheel_zoom=True)
+<div class="clipboard-copy-txt" id="cell-3">m = imap.Map(center=(0, 0), zoom=2, scroll_wheel_zoom=True)
 url = "https://data.fs.usda.gov/geodata/rastergateway/downloadMap.php?mapID=354508215&amp;mapType=tif"
 # m.add_raster("HMA_DM_6H_v01_DEMe_1km.tif")
 m.add_raster(url)
@@ -1748,12 +1748,12 @@ m</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scroll_wheel_zoom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m2</span> <span class="o">=</span> <span class="n">imap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scroll_wheel_zoom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">url2</span> <span class="o">=</span> <span class="s2">"https://media.giphy.com/media/NvNyuTD794sIIPntaw/giphy.gif"</span>
 <span class="n">m2</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">url2</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">[[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">]],</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">m2</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4">m2 = sm.Map(center=(0, 0), zoom=2, scroll_wheel_zoom=True)
+<div class="clipboard-copy-txt" id="cell-4">m2 = imap.Map(center=(0, 0), zoom=2, scroll_wheel_zoom=True)
 url2 = "https://media.giphy.com/media/NvNyuTD794sIIPntaw/giphy.gif"
 m2.add_image(url2, bounds=[[25, 50], [40, 20]], opacity=0.5)
 m2</div>
@@ -1781,12 +1781,12 @@ m2</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m3</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scroll_wheel_zoom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m3</span> <span class="o">=</span> <span class="n">imap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scroll_wheel_zoom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">url3</span> <span class="o">=</span> <span class="s2">"https://www.mapbox.com/bites/00188/patricia_nasa.webm"</span>
 <span class="n">m3</span><span class="o">.</span><span class="n">add_video</span><span class="p">(</span><span class="n">url3</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">[[</span><span class="mi">13</span><span class="p">,</span> <span class="o">-</span><span class="mi">130</span><span class="p">],</span> <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">]],</span> <span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">m3</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">m3 = sm.Map(center=(0, 0), zoom=2, scroll_wheel_zoom=True)
+<div class="clipboard-copy-txt" id="cell-5">m3 = imap.Map(center=(0, 0), zoom=2, scroll_wheel_zoom=True)
 url3 = "https://www.mapbox.com/bites/00188/patricia_nasa.webm"
 m3.add_video(url3, bounds=[[13, -130], [32, -100]], opacity=1)
 m3</div>
@@ -1814,12 +1814,12 @@ m3</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m4</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">38.491</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.712</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">scroll_wheel_zoom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m4</span> <span class="o">=</span> <span class="n">imap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">38.491</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.712</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">scroll_wheel_zoom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">url4</span> <span class="o">=</span> <span class="s2">"http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi"</span>
 <span class="n">m4</span><span class="o">.</span><span class="n">add_wms_layer</span><span class="p">(</span><span class="n">url4</span><span class="p">,</span> <span class="n">layers</span><span class="o">=</span><span class="s2">"nexrad-n0r-900913"</span><span class="p">)</span>
 <span class="n">m4</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6">m4 = sm.Map(center=(38.491, -95.712), zoom=4, scroll_wheel_zoom=True)
+<div class="clipboard-copy-txt" id="cell-6">m4 = imap.Map(center=(38.491, -95.712), zoom=4, scroll_wheel_zoom=True)
 url4 = "http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi"
 m4.add_wms_layer(url4, layers="nexrad-n0r-900913")
 m4</div>
@@ -1847,12 +1847,12 @@ m4</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m4</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">38.491</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.712</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">scroll_wheel_zoom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">m4</span> <span class="o">=</span> <span class="n">imap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">38.491</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.712</span><span class="p">),</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">scroll_wheel_zoom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">url4</span> <span class="o">=</span> <span class="s2">"https://imagery.nationalmap.gov/arcgis/services/USGSNAIPPlus/ImageServer/WMSServer?"</span>
 <span class="n">m4</span><span class="o">.</span><span class="n">add_wms_layer</span><span class="p">(</span><span class="n">url4</span><span class="p">,</span> <span class="n">layers</span><span class="o">=</span><span class="s2">"USGSNAIPPlus"</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"image/png"</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">m4</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-7">m4 = sm.Map(center=(38.491, -95.712), zoom=4, scroll_wheel_zoom=True)
+<div class="clipboard-copy-txt" id="cell-7">m4 = imap.Map(center=(38.491, -95.712), zoom=4, scroll_wheel_zoom=True)
 url4 = "https://imagery.nationalmap.gov/arcgis/services/USGSNAIPPlus/ImageServer/WMSServer?"
 m4.add_wms_layer(url4, layers="USGSNAIPPlus", format="image/png", transparent=True)
 m4</div>
@@ -1891,7 +1891,7 @@ m4</div>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="November 7, 2025 21:40:22 UTC"><span class="timeago" datetime="2025-11-07T21:40:22+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="November 7, 2025 21:40:22 UTC">2025-11-07</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="August 14, 2026 20:14:59 UTC"><span class="timeago" datetime="2026-08-14T20:14:59+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="August 14, 2026 20:14:59 UTC">2026-08-14</span>
   </span>
 
     
