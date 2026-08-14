@@ -1,5 +1,7 @@
-# This workflows will upload a Python Package using Twine when a release is created
-# For more information see: https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
+# This workflow uploads a Python package to PyPI when a release is created.
+# It authenticates with PyPI trusted publishing (OIDC), so no API token or
+# username/password secret is stored in this repository.
+# See https://docs.pypi.org/trusted-publishers/
 
 name: pypi
 
@@ -8,7 +10,7 @@ on:
         types: [created]
 
 jobs:
-    deploy:
+    build:
         runs-on: ubuntu-latest
 
         steps:
@@ -20,11 +22,32 @@ jobs:
             - name: Install dependencies
               run: |
                   python -m pip install --upgrade pip
-                  pip install setuptools wheel twine build
-            - name: Build and publish
-              env:
-                  TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-                  TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-              run: |
-                  python -m build
-                  twine upload --skip-existing dist/*
+                  pip install build
+            - name: Build distributions
+              run: python -m build
+            - name: Upload distributions
+              uses: actions/upload-artifact@v4
+              with:
+                  name: dist
+                  path: dist/
+
+    publish:
+        needs: build
+        runs-on: ubuntu-latest
+        # Mandatory for trusted publishing: lets the job mint an OIDC token
+        # that identifies it to PyPI.
+        permissions:
+            id-token: write
+
+        steps:
+            - name: Download distributions
+              uses: actions/download-artifact@v4
+              with:
+                  name: dist
+                  path: dist/
+            - name: Publish to PyPI
+              uses: pypa/gh-action-pypi-publish@release/v1
+              with:
+                  # Keeps a re-run of a release from failing on files PyPI
+                  # already has, as the previous twine --skip-existing did.
+                  skip-existing: true
